@@ -119,7 +119,7 @@ namespace app8
             //idEstadoCivil = Convert.ToInt32(cboEstadoCivil.SelectedValue);
 
 
-            funcao.ValidarNomeCliente(nome.Trim());
+            funcao.ValidarNomeCliente(valida.Nome.Trim());
             funcao.ValidarEnderecoCliente(endereco.Trim());
             valida.ValidarCep();
 
