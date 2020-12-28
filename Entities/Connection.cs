@@ -9,7 +9,7 @@ namespace app8
       public void OpenDb()
       {
          string provider = "Provider=Microsoft.Jet.OLEDB.4.0; ";
-         string bank = "Data Source = D:\\Curso C#\\C# Avançado\\Aula 08\\app8\\loja.mdb";
+         string bank = "Data Source = D:\\Curso C#\\C# Avançado\\Aula 08\\app8\\cadastrocliente\\loja.mdb";
 
          //cx.ConnectionString = "Provider = Microsoft.Jet.OLEDB.4.0; Data Source = D:\\Curso C#\\C# Avançado\\Aula 08\\app8\\loja.mdb";
          cx.ConnectionString = provider + bank;

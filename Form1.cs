@@ -2,6 +2,7 @@
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
+using app8.Entities;
 
 namespace app8
 {
@@ -9,6 +10,7 @@ namespace app8
    {
       Connection ca = new Connection();
       Validacao funcao = new Validacao();
+
       public Form1()
       {
          InitializeComponent();
@@ -91,35 +93,47 @@ namespace app8
 
          try
          {
-            nome = txtNome.Text;
-            endereco = txtEndereco.Text;
-            cep = txtCep.Text;
-            cidade = txtCidade.Text;
-            estado = cboEstado.Text;
-            idEstado = Convert.ToInt32(cboEstado.SelectedValue);
-            estadoCivil = cboEstadoCivil.Text;
-            idEstadoCivil = Convert.ToInt32(cboEstadoCivil.SelectedValue);
 
-            funcao.ValidarCamposNulos(nome, "nome");
-            funcao.ValidarCamposNulos(endereco, "endereco");
-            funcao.ValidarCamposNulos(cidade, "cidade");
-            funcao.ValidarCamposNulos(cep, "cep");
-            funcao.ValidarCamposNulos(estado, "estado");
-            funcao.ValidarCamposNulos(estadoCivil, "estadoCivil");
+            Validation2 valida = new Validation2
+            {
+               Nome = txtNome.Text.Trim(),
+               Endereco = txtEndereco.Text.Trim(),
+               Cep = txtCep.Text.Trim(),
+               Cidade = txtCidade.Text.Trim(),
+               Estado = cboEstado.Text.Trim(),
+               IdEstado = Convert.ToInt32(cboEstado.SelectedValue),
+               EstadoCivil = cboEstadoCivil.Text.Trim(),
+               IdEstadoCivil = Convert.ToInt32(cboEstadoCivil.SelectedValue)
+            };
+
+
+            valida.Valida();
+
+            //nome = txtNome.Text;
+            //endereco = txtEndereco.Text;
+            //cep = txtCep.Text;
+            //cidade = txtCidade.Text;
+            //estado = cboEstado.Text;
+            //idEstado = Convert.ToInt32(cboEstado.SelectedValue);
+            //estadoCivil = cboEstadoCivil.Text;
+            //idEstadoCivil = Convert.ToInt32(cboEstadoCivil.SelectedValue);
+
+
             funcao.ValidarNomeCliente(nome.Trim());
             funcao.ValidarEnderecoCliente(endereco.Trim());
-            funcao.ValidarCep(cep);
+            valida.ValidarCep();
 
-            sql = "INSERT INTO Clientes (Nome, idEstadoCivil, Endereco, CEP, idEstado, Cidade)";
-            sql += $" VALUES('{nome}', {idEstadoCivil}, '{endereco}', '{cep}', {idEstado}, '{cidade}')";
+            valida.IsertClient();
+            //sql = "INSERT INTO Clientes (Nome, idEstadoCivil, Endereco, CEP, idEstado, Cidade)";
+            //sql += $" VALUES('{nome}', {idEstadoCivil}, '{endereco}', '{cep}', {idEstado}, '{cidade}')";
 
-            ca.OpenDb();
-            OleDbCommand com = new OleDbCommand();
-            com.Connection = ca.cx;
-            com.CommandText = sql;
-            com.ExecuteNonQuery();
-            status = "Cliente cadastrado";
-            ca.CloseDb();
+            //ca.OpenDb();
+            //OleDbCommand com = new OleDbCommand();
+            //com.Connection = ca.cx;
+            //com.CommandText = sql;
+            //com.ExecuteNonQuery();
+            //status = "Cliente cadastrado";
+            //ca.CloseDb();
             PreencheDataGrid();
          }
          catch (Exception x)

@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Entities\Validacao.cs" />
     <Compile Include="Entities\Connection.cs" />
+    <Compile Include="Entities\Validation2.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
