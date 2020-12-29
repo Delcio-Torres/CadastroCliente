@@ -1,4 +1,6 @@
 ﻿
+using app8.Entities;
+using app8.Controller;
 namespace app8
 {
    partial class Form1
@@ -29,14 +31,12 @@ namespace app8
       /// </summary>
       private void InitializeComponent()
       {
-         this.dgClientes = new System.Windows.Forms.DataGridView();
          this.txtNome = new System.Windows.Forms.TextBox();
          this.txtEndereco = new System.Windows.Forms.TextBox();
          this.txtCidade = new System.Windows.Forms.TextBox();
          this.txtCep = new System.Windows.Forms.TextBox();
          this.txtID = new System.Windows.Forms.TextBox();
          this.cboEstadoCivil = new System.Windows.Forms.ComboBox();
-         this.cboEstado = new System.Windows.Forms.ComboBox();
          this.label2 = new System.Windows.Forms.Label();
          this.label3 = new System.Windows.Forms.Label();
          this.label4 = new System.Windows.Forms.Label();
@@ -46,28 +46,10 @@ namespace app8
          this.button1 = new System.Windows.Forms.Button();
          this.label1 = new System.Windows.Forms.Label();
          this.lblStatus = new System.Windows.Forms.Label();
+         this.cboEstado = new app8.Controller.EstadoComboBox();
+         this.dgClientes = new app8.Entities.ClientesGridView();
          ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
          this.SuspendLayout();
-         // 
-         // dgClientes
-         // 
-         this.dgClientes.AllowUserToAddRows = false;
-         this.dgClientes.AllowUserToDeleteRows = false;
-         this.dgClientes.AllowUserToResizeColumns = false;
-         this.dgClientes.AllowUserToResizeRows = false;
-         this.dgClientes.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
-         this.dgClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
-         this.dgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-         this.dgClientes.Dock = System.Windows.Forms.DockStyle.Bottom;
-         this.dgClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-         this.dgClientes.Location = new System.Drawing.Point(0, 227);
-         this.dgClientes.MultiSelect = false;
-         this.dgClientes.Name = "dgClientes";
-         this.dgClientes.RowHeadersVisible = false;
-         this.dgClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-         this.dgClientes.Size = new System.Drawing.Size(575, 207);
-         this.dgClientes.TabIndex = 7;
-         this.dgClientes.TabStop = false;
          // 
          // txtNome
          // 
@@ -112,14 +94,6 @@ namespace app8
          this.cboEstadoCivil.Name = "cboEstadoCivil";
          this.cboEstadoCivil.Size = new System.Drawing.Size(123, 21);
          this.cboEstadoCivil.TabIndex = 5;
-         // 
-         // cboEstado
-         // 
-         this.cboEstado.FormattingEnabled = true;
-         this.cboEstado.Location = new System.Drawing.Point(274, 129);
-         this.cboEstado.Name = "cboEstado";
-         this.cboEstado.Size = new System.Drawing.Size(121, 21);
-         this.cboEstado.TabIndex = 4;
          // 
          // label2
          // 
@@ -208,6 +182,34 @@ namespace app8
          this.lblStatus.Text = "Status:";
          this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
          // 
+         // cboEstado
+         // 
+         this.cboEstado.FormattingEnabled = true;
+         this.cboEstado.Location = new System.Drawing.Point(274, 129);
+         this.cboEstado.Name = "cboEstado";
+         this.cboEstado.Size = new System.Drawing.Size(121, 21);
+         this.cboEstado.TabIndex = 4;
+         // 
+         // dgClientes
+         // 
+         this.dgClientes.AllowUserToAddRows = false;
+         this.dgClientes.AllowUserToDeleteRows = false;
+         this.dgClientes.AllowUserToResizeColumns = false;
+         this.dgClientes.AllowUserToResizeRows = false;
+         this.dgClientes.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+         this.dgClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+         this.dgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+         this.dgClientes.Dock = System.Windows.Forms.DockStyle.Bottom;
+         this.dgClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+         this.dgClientes.Location = new System.Drawing.Point(0, 227);
+         this.dgClientes.MultiSelect = false;
+         this.dgClientes.Name = "dgClientes";
+         this.dgClientes.RowHeadersVisible = false;
+         this.dgClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+         this.dgClientes.Size = new System.Drawing.Size(575, 207);
+         this.dgClientes.TabIndex = 7;
+         this.dgClientes.TabStop = false;
+         // 
          // Form1
          // 
          this.AcceptButton = this.button1;
@@ -244,14 +246,13 @@ namespace app8
 
       #endregion
 
-      private System.Windows.Forms.DataGridView dgClientes;
+      private ClientesGridView dgClientes;
       private System.Windows.Forms.TextBox txtNome;
       private System.Windows.Forms.TextBox txtEndereco;
       private System.Windows.Forms.TextBox txtCidade;
       private System.Windows.Forms.TextBox txtCep;
       private System.Windows.Forms.TextBox txtID;
       private System.Windows.Forms.ComboBox cboEstadoCivil;
-      private System.Windows.Forms.ComboBox cboEstado;
       private System.Windows.Forms.Label label2;
       private System.Windows.Forms.Label label3;
       private System.Windows.Forms.Label label4;
@@ -261,6 +262,7 @@ namespace app8
       private System.Windows.Forms.Button button1;
       private System.Windows.Forms.Label label1;
       private System.Windows.Forms.Label lblStatus;
+      private EstadoComboBox cboEstado;
    }
 }
 
