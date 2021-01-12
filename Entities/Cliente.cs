@@ -10,7 +10,7 @@ namespace app8.Entities
       public string Cidade { get; set; }
       public string Cep { get; set; }
       public Estado Estado { get; set; }
-      // TODO: public EstadoCivil EstadoCivil { get; set; }
+      public EstadoCivil EstadoCivil { get; set; }
 
       Connection ca = new Connection();
 
@@ -23,7 +23,7 @@ namespace app8.Entities
          ValidarCamposNulos(Cidade, "Cidade");
          ValidarCamposNulos(Cep, "Cep");
          ValidarCamposNulos(Estado.Nome, "Estado");
-         // TODO: ValidarCamposNulos(EstadoCivil.Nome, "EstadoCivil");
+         ValidarCamposNulos(EstadoCivil.Nome, "EstadoCivil");
 
          ValidarNomeCliente();
          ValidarEnderecoCliente();

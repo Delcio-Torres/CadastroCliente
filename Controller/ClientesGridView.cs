@@ -20,9 +20,8 @@ namespace app8.Entities
          
       public void PreencheDataGrid()
       {
-         this.DataSource = ca.RunQuery(
-            "SELECT idCliente, Nome, Endereco, Cidade FROM Clientes ORDER BY Nome",
-            "Clientes");
+         string query = "SELECT idCliente, Nome, Endereco, Cidade FROM Clientes ORDER BY Nome";
+         this.DataSource = ca.RunQuery(query,"Clientes");
          this.Columns[0].Visible = false;
          this.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
          this.Columns[2].Width = 200;

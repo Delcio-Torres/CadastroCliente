@@ -16,33 +16,16 @@ namespace app8
          InitializeComponent();
       }
 
-
-      private void PreencheComboEstadoCivil()
-      {
-         ca.OpenDb();
-         string sql = "SELECT idEstadoCivil, EstadoCivil FROM EstadoCivil";
-         OleDbDataAdapter da = new OleDbDataAdapter(sql, ca.cx);
-         DataSet ds = new DataSet();
-         string a = "EstadoCivil";
-         da.Fill(ds, a);
-         cboEstadoCivil.DisplayMember = "EstadoCivil";
-         cboEstadoCivil.ValueMember = "idEstadoCivil";
-         cboEstadoCivil.DataSource = ds.Tables[a];
-         ca.CloseDb();
-         cboEstadoCivil.Text = "";
-      }
       private void Form1_Load(object sender, EventArgs e)
       {
          dgClientes.PreencheDataGrid();
          cboEstado.PreencheComboEstado();
-         PreencheComboEstadoCivil();
+         cboEstadoCivil.PreencheComboEstadoCivil();
       }
 
       private void button1_Click(object sender, EventArgs e)
       {
 
-         int idEstado;
-         int idEstadoCivil;
          string status = "";
 
          Cliente cliente = new Cliente
@@ -52,7 +35,7 @@ namespace app8
             Cep = txtCep.Text.Trim(),
             Cidade = txtCidade.Text.Trim(),
             Estado = cboEstado.ToEstado(),
-            // TODO: estado civil
+            EstadoCivil = cboEstadoCivil.ToEstadoCivil()
          };
 
          try

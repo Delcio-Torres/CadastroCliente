@@ -36,7 +36,8 @@ namespace app8
          this.txtCidade = new System.Windows.Forms.TextBox();
          this.txtCep = new System.Windows.Forms.TextBox();
          this.txtID = new System.Windows.Forms.TextBox();
-         this.cboEstadoCivil = new System.Windows.Forms.ComboBox();
+         //this.cboEstadoCivil = new System.Windows.Forms.ComboBox();
+         this.cboEstadoCivil = new app8.Controller.EstadoCivilComboBox();
          this.label2 = new System.Windows.Forms.Label();
          this.label3 = new System.Windows.Forms.Label();
          this.label4 = new System.Windows.Forms.Label();
@@ -253,7 +254,6 @@ namespace app8
       private System.Windows.Forms.TextBox txtCidade;
       private System.Windows.Forms.TextBox txtCep;
       private System.Windows.Forms.TextBox txtID;
-      private System.Windows.Forms.ComboBox cboEstadoCivil;
       private System.Windows.Forms.Label label2;
       private System.Windows.Forms.Label label3;
       private System.Windows.Forms.Label label4;
@@ -264,6 +264,7 @@ namespace app8
       private System.Windows.Forms.Label label1;
       private System.Windows.Forms.Label lblStatus;
       private EstadoComboBox cboEstado;
+      private EstadoCivilComboBox cboEstadoCivil;
    }
 }
 

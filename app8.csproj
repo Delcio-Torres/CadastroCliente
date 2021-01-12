@@ -49,6 +49,9 @@
     <Compile Include="Controller\ClientesGridView.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Controller\EstadoCivilComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Controller\EstadoComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
