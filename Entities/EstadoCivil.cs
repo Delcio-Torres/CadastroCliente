@@ -8,5 +8,7 @@ namespace app8.Entities
 {
    class EstadoCivil
    {
+      public int ID { get; set; }
+      public string Nome { get; set; } 
    }
 }

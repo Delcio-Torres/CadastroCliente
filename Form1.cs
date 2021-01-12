@@ -36,10 +36,6 @@ namespace app8
          dgClientes.PreencheDataGrid();
          cboEstado.PreencheComboEstado();
          PreencheComboEstadoCivil();
-         //dgClientes.Columns[0].Visible = false;
-         //dgClientes.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-         //dgClientes.Columns[2].Width = 200;
-         //dgClientes.Columns[3].Width = 100;
       }
 
       private void button1_Click(object sender, EventArgs e)
@@ -49,19 +45,13 @@ namespace app8
          int idEstadoCivil;
          string status = "";
 
-         var estado = new Estado
-         {
-            Id = Convert.ToInt32(cboEstado.SelectedValue),
-            Nome = cboEstado.Text.Trim()
-         };
-
          Cliente cliente = new Cliente
          {
             Nome = txtNome.Text.Trim(),
             Endereco = txtEndereco.Text.Trim(),
             Cep = txtCep.Text.Trim(),
             Cidade = txtCidade.Text.Trim(),
-            Estado = estado,
+            Estado = cboEstado.ToEstado(),
             // TODO: estado civil
          };
 

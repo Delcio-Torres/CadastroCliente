@@ -204,6 +204,7 @@ namespace app8
          this.dgClientes.Location = new System.Drawing.Point(0, 227);
          this.dgClientes.MultiSelect = false;
          this.dgClientes.Name = "dgClientes";
+         this.dgClientes.ReadOnly = true;
          this.dgClientes.RowHeadersVisible = false;
          this.dgClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
          this.dgClientes.Size = new System.Drawing.Size(575, 207);
