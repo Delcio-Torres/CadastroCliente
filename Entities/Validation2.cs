@@ -59,23 +59,5 @@ namespace app8.Entities
          Status = "Cliente cadastrado";
          ca.CloseDb();
       }
-
-      public void ValidarCep()
-      {
-         //string txtControle = "cep";
-         
-         string c, y = "";
-         int x, digito = 0;
-
-         for (int i = 0; i <= Cep.Length - 1; i++)
-         {
-            c = Cep.Substring(i, 1);
-            if (c == "-" && i == 5) digito = 5;
-            else y += c;
-
-         }
-         if (int.TryParse(y, out x) && digito == 5 && Cep.Length == 9) { }
-         else throw new Exception("CEP não está no formato válido \"00000-000\"");
-      }
    }
 }

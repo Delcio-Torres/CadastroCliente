@@ -23,9 +23,8 @@ namespace app8
          cboEstadoCivil.PreencheComboEstadoCivil();
       }
 
-      private void button1_Click(object sender, EventArgs e)
+      private void cmdIncluir_Click(object sender, EventArgs e)
       {
-
          string status = "";
 
          Cliente cliente = new Cliente
@@ -73,6 +72,5 @@ namespace app8
             lblStatus.Text = "Status: " + status;
          }
       }
-
    }
 }

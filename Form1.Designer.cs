@@ -36,19 +36,21 @@ namespace app8
          this.txtCidade = new System.Windows.Forms.TextBox();
          this.txtCep = new System.Windows.Forms.TextBox();
          this.txtID = new System.Windows.Forms.TextBox();
-         //this.cboEstadoCivil = new System.Windows.Forms.ComboBox();
-         this.cboEstadoCivil = new app8.Controller.EstadoCivilComboBox();
          this.label2 = new System.Windows.Forms.Label();
          this.label3 = new System.Windows.Forms.Label();
          this.label4 = new System.Windows.Forms.Label();
          this.label5 = new System.Windows.Forms.Label();
          this.label6 = new System.Windows.Forms.Label();
          this.label7 = new System.Windows.Forms.Label();
-         this.button1 = new System.Windows.Forms.Button();
+         this.cmdIncluir = new System.Windows.Forms.Button();
          this.label1 = new System.Windows.Forms.Label();
          this.lblStatus = new System.Windows.Forms.Label();
          this.cboEstado = new app8.Controller.EstadoComboBox();
+         this.cboEstadoCivil = new app8.Controller.EstadoCivilComboBox();
          this.dgClientes = new app8.Entities.ClientesGridView();
+         this.button1 = new System.Windows.Forms.Button();
+         this.button2 = new System.Windows.Forms.Button();
+         this.button3 = new System.Windows.Forms.Button();
          ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
          this.SuspendLayout();
          // 
@@ -87,14 +89,6 @@ namespace app8
          this.txtID.Size = new System.Drawing.Size(55, 20);
          this.txtID.TabIndex = 17;
          this.txtID.Visible = false;
-         // 
-         // cboEstadoCivil
-         // 
-         this.cboEstadoCivil.FormattingEnabled = true;
-         this.cboEstadoCivil.Location = new System.Drawing.Point(404, 129);
-         this.cboEstadoCivil.Name = "cboEstadoCivil";
-         this.cboEstadoCivil.Size = new System.Drawing.Size(123, 21);
-         this.cboEstadoCivil.TabIndex = 5;
          // 
          // label2
          // 
@@ -150,15 +144,15 @@ namespace app8
          this.label7.TabIndex = 13;
          this.label7.Text = "Estado:";
          // 
-         // button1
+         // cmdIncluir
          // 
-         this.button1.Location = new System.Drawing.Point(56, 161);
-         this.button1.Name = "button1";
-         this.button1.Size = new System.Drawing.Size(108, 23);
-         this.button1.TabIndex = 6;
-         this.button1.Text = "Incluir";
-         this.button1.UseVisualStyleBackColor = true;
-         this.button1.Click += new System.EventHandler(this.button1_Click);
+         this.cmdIncluir.Location = new System.Drawing.Point(56, 161);
+         this.cmdIncluir.Name = "cmdIncluir";
+         this.cmdIncluir.Size = new System.Drawing.Size(108, 23);
+         this.cmdIncluir.TabIndex = 6;
+         this.cmdIncluir.Text = "&Novo";
+         this.cmdIncluir.UseVisualStyleBackColor = true;
+         this.cmdIncluir.Click += new System.EventHandler(this.cmdIncluir_Click);
          // 
          // label1
          // 
@@ -191,6 +185,14 @@ namespace app8
          this.cboEstado.Size = new System.Drawing.Size(121, 21);
          this.cboEstado.TabIndex = 4;
          // 
+         // cboEstadoCivil
+         // 
+         this.cboEstadoCivil.FormattingEnabled = true;
+         this.cboEstadoCivil.Location = new System.Drawing.Point(404, 129);
+         this.cboEstadoCivil.Name = "cboEstadoCivil";
+         this.cboEstadoCivil.Size = new System.Drawing.Size(123, 21);
+         this.cboEstadoCivil.TabIndex = 5;
+         // 
          // dgClientes
          // 
          this.dgClientes.AllowUserToAddRows = false;
@@ -212,15 +214,48 @@ namespace app8
          this.dgClientes.TabIndex = 7;
          this.dgClientes.TabStop = false;
          // 
+         // button1
+         // 
+         this.button1.Location = new System.Drawing.Point(419, 161);
+         this.button1.Name = "button1";
+         this.button1.Size = new System.Drawing.Size(108, 23);
+         this.button1.TabIndex = 6;
+         this.button1.Text = "&Fechar";
+         this.button1.UseVisualStyleBackColor = true;
+         this.button1.Click += new System.EventHandler(this.cmdIncluir_Click);
+         // 
+         // button2
+         // 
+         this.button2.Location = new System.Drawing.Point(177, 161);
+         this.button2.Name = "button2";
+         this.button2.Size = new System.Drawing.Size(108, 23);
+         this.button2.TabIndex = 6;
+         this.button2.Text = "&Alterar";
+         this.button2.UseVisualStyleBackColor = true;
+         this.button2.Click += new System.EventHandler(this.cmdIncluir_Click);
+         // 
+         // button3
+         // 
+         this.button3.Location = new System.Drawing.Point(298, 161);
+         this.button3.Name = "button3";
+         this.button3.Size = new System.Drawing.Size(108, 23);
+         this.button3.TabIndex = 6;
+         this.button3.Text = "&Excluir";
+         this.button3.UseVisualStyleBackColor = true;
+         this.button3.Click += new System.EventHandler(this.cmdIncluir_Click);
+         // 
          // Form1
          // 
-         this.AcceptButton = this.button1;
+         this.AcceptButton = this.cmdIncluir;
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
          this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
          this.ClientSize = new System.Drawing.Size(575, 434);
          this.Controls.Add(this.lblStatus);
          this.Controls.Add(this.label1);
+         this.Controls.Add(this.button3);
+         this.Controls.Add(this.button2);
          this.Controls.Add(this.button1);
+         this.Controls.Add(this.cmdIncluir);
          this.Controls.Add(this.label5);
          this.Controls.Add(this.label4);
          this.Controls.Add(this.label3);
@@ -260,11 +295,14 @@ namespace app8
       private System.Windows.Forms.Label label5;
       private System.Windows.Forms.Label label6;
       private System.Windows.Forms.Label label7;
-      private System.Windows.Forms.Button button1;
+      private System.Windows.Forms.Button cmdIncluir;
       private System.Windows.Forms.Label label1;
       private System.Windows.Forms.Label lblStatus;
       private EstadoComboBox cboEstado;
       private EstadoCivilComboBox cboEstadoCivil;
+      private System.Windows.Forms.Button button1;
+      private System.Windows.Forms.Button button2;
+      private System.Windows.Forms.Button button3;
    }
 }
 

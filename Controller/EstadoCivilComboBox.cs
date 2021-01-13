@@ -14,7 +14,7 @@ namespace app8.Controller
          ca = new Connection();
       }
       
-      private void PreencheComboEstadoCivil()
+      public void PreencheComboEstadoCivil()
       {
          ca.OpenDb();
          string sql = "SELECT idEstadoCivil, EstadoCivil FROM EstadoCivil";

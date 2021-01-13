@@ -42,7 +42,7 @@ namespace app8.Entities
 
       public void ValidarNomeCliente()
       {
-         txtControle = "nome";
+         //txtControle = "nome";
    
          ca.RunQuery(
             $"SELECT Nome FROM Clientes WHERE (Nome = '{this.Nome}')",
