@@ -46,6 +46,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\ClientesGridView.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controller\EstadoCivilComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Controller\EstadoComboBox.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Entities\Cliente.cs" />
+    <Compile Include="Entities\Entidade.cs" />
+    <Compile Include="Entities\Estado.cs" />
+    <Compile Include="Entities\EstadoCivil.cs" />
     <Compile Include="Entities\Validacao.cs" />
     <Compile Include="Entities\Connection.cs" />
     <Compile Include="Entities\Validation2.cs" />
