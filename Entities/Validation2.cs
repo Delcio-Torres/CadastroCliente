@@ -38,12 +38,12 @@ namespace app8.Entities
 
       public void Valida()
       {
-         if (Nome.Length == 0) throw new Exception("Nome não ser nulo!");
-         if (Endereco.Length == 0) throw new Exception("Endereço  não ser nulo!");
-         if (Cidade.Length == 0) throw new Exception("Cidade não ser nulo!");
-         if (Cep.Length == 0) throw new Exception("Cep não ser nulo!");
-         if (Estado.Length == 0) throw new Exception("Estado não ser nulo!");
-         if (EstadoCivil.Length == 0) throw new Exception("Estado Civil não ser nulo!");
+         if (Nome.Length == 0) throw new Exception("Nome não pode ser nulo!");
+         if (Endereco.Length == 0) throw new Exception("Endereço  pode não ser nulo!");
+         if (Cidade.Length == 0) throw new Exception("Cidade não pode ser nulo!");
+         if (Cep.Length == 0) throw new Exception("Cep não ser pode nulo!");
+         if (Estado.Length == 0) throw new Exception("Estado não pode ser nulo!");
+         if (EstadoCivil.Length == 0) throw new Exception("Estado Civil não pode ser nulo!");
       }
 
       public void IsertClient()
@@ -58,6 +58,13 @@ namespace app8.Entities
          com.ExecuteNonQuery();
          Status = "Cliente cadastrado";
          ca.CloseDb();
+      }
+
+      public void UpdateClient()
+      {
+         string sql = $"UPDATE Clientes SET ( Nome ={Nome}, idEstadoCivil = {IdEstadoCivil},"
+                    + $"Endereco = {Endereco}, CEP = {Cep}, Cidade = {Cidade}, idEstado = {IdEstado}";
+
       }
    }
 }

@@ -9,13 +9,6 @@ namespace app8.Entities
       public ClientesGridView()
       {
          ca = new Connection();
-
-         //var nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-         //nome.HeaderText = "Nome";
-
-         //this.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-         //   nome
-         //});
       }
          
       public void PreencheDataGrid()

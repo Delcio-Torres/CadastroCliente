@@ -36,7 +36,8 @@ namespace app8
          catch (Exception x)
          {
             return new DataTable();
-         } finally
+         } 
+         finally
          {
             CloseDb();
          }

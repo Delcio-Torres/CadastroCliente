@@ -45,12 +45,12 @@ namespace app8
          this.cmdIncluir = new System.Windows.Forms.Button();
          this.label1 = new System.Windows.Forms.Label();
          this.lblStatus = new System.Windows.Forms.Label();
+         this.cmdFechar = new System.Windows.Forms.Button();
+         this.cmdAlterar = new System.Windows.Forms.Button();
+         this.cmdExcluir = new System.Windows.Forms.Button();
          this.cboEstado = new app8.Controller.EstadoComboBox();
          this.cboEstadoCivil = new app8.Controller.EstadoCivilComboBox();
          this.dgClientes = new app8.Entities.ClientesGridView();
-         this.button1 = new System.Windows.Forms.Button();
-         this.button2 = new System.Windows.Forms.Button();
-         this.button3 = new System.Windows.Forms.Button();
          ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
          this.SuspendLayout();
          // 
@@ -162,7 +162,7 @@ namespace app8
          this.label1.Location = new System.Drawing.Point(0, 0);
          this.label1.Name = "label1";
          this.label1.Size = new System.Drawing.Size(575, 46);
-         this.label1.TabIndex = 8;
+         this.label1.TabIndex = 12;
          this.label1.Text = "Detalhes do Cliente";
          this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
          // 
@@ -173,9 +173,37 @@ namespace app8
          this.lblStatus.Location = new System.Drawing.Point(0, 196);
          this.lblStatus.Name = "lblStatus";
          this.lblStatus.Size = new System.Drawing.Size(575, 31);
-         this.lblStatus.TabIndex = 14;
+         this.lblStatus.TabIndex = 10;
          this.lblStatus.Text = "Status:";
          this.lblStatus.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+         // 
+         // cmdFechar
+         // 
+         this.cmdFechar.Location = new System.Drawing.Point(419, 161);
+         this.cmdFechar.Name = "cmdFechar";
+         this.cmdFechar.Size = new System.Drawing.Size(108, 23);
+         this.cmdFechar.TabIndex = 9;
+         this.cmdFechar.Text = "&Fechar";
+         this.cmdFechar.UseVisualStyleBackColor = true;
+         this.cmdFechar.Click += new System.EventHandler(this.cmdFechar_Click);
+         // 
+         // cmdAlterar
+         // 
+         this.cmdAlterar.Location = new System.Drawing.Point(177, 161);
+         this.cmdAlterar.Name = "cmdAlterar";
+         this.cmdAlterar.Size = new System.Drawing.Size(108, 23);
+         this.cmdAlterar.TabIndex = 7;
+         this.cmdAlterar.Text = "&Alterar";
+         this.cmdAlterar.UseVisualStyleBackColor = true;
+         // 
+         // cmdExcluir
+         // 
+         this.cmdExcluir.Location = new System.Drawing.Point(298, 161);
+         this.cmdExcluir.Name = "cmdExcluir";
+         this.cmdExcluir.Size = new System.Drawing.Size(108, 23);
+         this.cmdExcluir.TabIndex = 8;
+         this.cmdExcluir.Text = "&Excluir";
+         this.cmdExcluir.UseVisualStyleBackColor = true;
          // 
          // cboEstado
          // 
@@ -211,38 +239,9 @@ namespace app8
          this.dgClientes.RowHeadersVisible = false;
          this.dgClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
          this.dgClientes.Size = new System.Drawing.Size(575, 207);
-         this.dgClientes.TabIndex = 7;
+         this.dgClientes.TabIndex = 11;
          this.dgClientes.TabStop = false;
-         // 
-         // button1
-         // 
-         this.button1.Location = new System.Drawing.Point(419, 161);
-         this.button1.Name = "button1";
-         this.button1.Size = new System.Drawing.Size(108, 23);
-         this.button1.TabIndex = 6;
-         this.button1.Text = "&Fechar";
-         this.button1.UseVisualStyleBackColor = true;
-         this.button1.Click += new System.EventHandler(this.cmdIncluir_Click);
-         // 
-         // button2
-         // 
-         this.button2.Location = new System.Drawing.Point(177, 161);
-         this.button2.Name = "button2";
-         this.button2.Size = new System.Drawing.Size(108, 23);
-         this.button2.TabIndex = 6;
-         this.button2.Text = "&Alterar";
-         this.button2.UseVisualStyleBackColor = true;
-         this.button2.Click += new System.EventHandler(this.cmdIncluir_Click);
-         // 
-         // button3
-         // 
-         this.button3.Location = new System.Drawing.Point(298, 161);
-         this.button3.Name = "button3";
-         this.button3.Size = new System.Drawing.Size(108, 23);
-         this.button3.TabIndex = 6;
-         this.button3.Text = "&Excluir";
-         this.button3.UseVisualStyleBackColor = true;
-         this.button3.Click += new System.EventHandler(this.cmdIncluir_Click);
+         this.dgClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellDoubleClick);
          // 
          // Form1
          // 
@@ -252,9 +251,9 @@ namespace app8
          this.ClientSize = new System.Drawing.Size(575, 434);
          this.Controls.Add(this.lblStatus);
          this.Controls.Add(this.label1);
-         this.Controls.Add(this.button3);
-         this.Controls.Add(this.button2);
-         this.Controls.Add(this.button1);
+         this.Controls.Add(this.cmdExcluir);
+         this.Controls.Add(this.cmdAlterar);
+         this.Controls.Add(this.cmdFechar);
          this.Controls.Add(this.cmdIncluir);
          this.Controls.Add(this.label5);
          this.Controls.Add(this.label4);
@@ -300,9 +299,9 @@ namespace app8
       private System.Windows.Forms.Label lblStatus;
       private EstadoComboBox cboEstado;
       private EstadoCivilComboBox cboEstadoCivil;
-      private System.Windows.Forms.Button button1;
-      private System.Windows.Forms.Button button2;
-      private System.Windows.Forms.Button button3;
+      private System.Windows.Forms.Button cmdFechar;
+      private System.Windows.Forms.Button cmdAlterar;
+      private System.Windows.Forms.Button cmdExcluir;
    }
 }
 
