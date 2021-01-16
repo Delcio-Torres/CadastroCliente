@@ -31,6 +31,7 @@ namespace app8.View
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          this.txtNome = new System.Windows.Forms.TextBox();
          this.txtEndereco = new System.Windows.Forms.TextBox();
          this.txtCidade = new System.Windows.Forms.TextBox();
@@ -48,14 +49,16 @@ namespace app8.View
          this.cmdFechar = new System.Windows.Forms.Button();
          this.cmdAlterar = new System.Windows.Forms.Button();
          this.cmdExcluir = new System.Windows.Forms.Button();
-         this.cboEstado = new EstadoComboBox();
-         this.cboEstadoCivil = new EstadoCivilComboBox();
-         this.dgClientes = new ClientesGridView();
+         this.cboEstado = new app8.View.EstadoComboBox();
+         this.cboEstadoCivil = new app8.View.EstadoCivilComboBox();
+         this.dgClientes = new app8.Controller.ClientesGridView();
          this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
          this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
          this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
          this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+         this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
          ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
+         ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
          this.SuspendLayout();
          // 
          // txtNome
@@ -276,6 +279,10 @@ namespace app8.View
          this.Column3.Name = "Column3";
          this.Column3.ReadOnly = true;
          // 
+         // errorProvider1
+         // 
+         this.errorProvider1.ContainerControl = this;
+         // 
          // Form1
          // 
          this.AcceptButton = this.cmdIncluir;
@@ -308,6 +315,7 @@ namespace app8.View
          this.Text = "Cadastro de Clientes";
          this.Load += new System.EventHandler(this.Form1_Load);
          ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
+         ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -339,6 +347,7 @@ namespace app8.View
       private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
       private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
       private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+      private System.Windows.Forms.ErrorProvider errorProvider1;
    }
 }
 

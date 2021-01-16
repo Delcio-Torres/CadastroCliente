@@ -107,27 +107,6 @@ namespace app8.Model
          else throw new Exception("CEP não está no formato válido \"00000-000\"");
       }
 
-      public static List<Cliente> LerBancoClinete()
-      {
-         List<Cliente> clientes = new List<Cliente>();
-         ca.RunQuery("SELECT idCliente, Nome, Endereco, Cidade FROM Clientes ORDER BY Nome", (OleDbDataReader dr) =>
-            {
-               while (dr.Read())
-               {
-                  Cliente cliente = new Cliente {
-                     IdCliente = Convert.ToInt32(dr["idCliente"]),
-                     Nome = dr["Nome"].ToString(),
-                     Endereco = dr["Endereco"].ToString(),
-                     Cidade = dr["Cidade"].ToString(),
-                  };
-                  clientes.Add(cliente);
-               }
-            }
-         );
-         
-         return clientes;
-      }
-
       public static Cliente GetCliente(int idCliente)
       {
          Cliente cliente = new Cliente();

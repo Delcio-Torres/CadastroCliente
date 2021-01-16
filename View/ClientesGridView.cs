@@ -1,18 +1,21 @@
 ﻿using System.Windows.Forms;
 using System.Collections.Generic;
 using app8.Model;
+using app8.Controller;
 
 namespace app8.Controller
 {
    class ClientesGridView: DataGridView
    {
       Connection ca;
+      ClienteController clienteController = new ClienteController();
+      Cliente cliente = new Cliente();
 
       public ClientesGridView()
       {
          ca = new Connection();
       }
-
+      
       public void PreencheDataGrid()
       {
          this.Rows.Clear();
@@ -21,7 +24,7 @@ namespace app8.Controller
          this.Columns[2].Width = 200;
          this.Columns[3].Width = 150;
 
-         foreach (Cliente cliente in Cliente.LerBancoClinete())
+         foreach (Cliente cliente in clienteController.LerBancoCliente())
          {
             this.Rows.Add(cliente.IdCliente, cliente.Nome, cliente.Endereco, cliente.Cidade);
          }

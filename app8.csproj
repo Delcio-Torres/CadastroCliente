@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\ClienteController.cs" />
     <Compile Include="View\ClientesGridView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -59,9 +60,7 @@
     <Compile Include="Model\Entidade.cs" />
     <Compile Include="Model\Estado.cs" />
     <Compile Include="Model\EstadoCivil.cs" />
-    <Compile Include="Controller\Validacao.cs" />
     <Compile Include="Controller\Connection.cs" />
-    <Compile Include="Controller\Validation2.cs" />
     <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
