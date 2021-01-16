@@ -1,7 +1,7 @@
-﻿
-using app8.Entities;
-using app8.Controller;
-namespace app8
+﻿using app8.Controller;
+
+namespace app8.View
+
 {
    partial class Form1
    {
@@ -48,9 +48,9 @@ namespace app8
          this.cmdFechar = new System.Windows.Forms.Button();
          this.cmdAlterar = new System.Windows.Forms.Button();
          this.cmdExcluir = new System.Windows.Forms.Button();
-         this.cboEstado = new app8.Controller.EstadoComboBox();
-         this.cboEstadoCivil = new app8.Controller.EstadoCivilComboBox();
-         this.dgClientes = new app8.Entities.ClientesGridView();
+         this.cboEstado = new EstadoComboBox();
+         this.cboEstadoCivil = new EstadoCivilComboBox();
+         this.dgClientes = new ClientesGridView();
          this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
          this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
          this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();

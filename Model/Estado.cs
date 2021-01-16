@@ -1,5 +1,5 @@
 ﻿
-namespace app8.Entities
+namespace app8.Model
 {
    class Estado
    {

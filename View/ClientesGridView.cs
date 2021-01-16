@@ -1,7 +1,8 @@
 ﻿using System.Windows.Forms;
 using System.Collections.Generic;
+using app8.Model;
 
-namespace app8.Entities
+namespace app8.Controller
 {
    class ClientesGridView: DataGridView
    {

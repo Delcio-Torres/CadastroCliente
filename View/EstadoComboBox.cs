@@ -1,11 +1,12 @@
-﻿using app8.Entities;
+﻿using app8.Controller;
+using app8.Model;
 using System;
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
 
 
-namespace app8.Controller
+namespace app8.View
 {
    class EstadoComboBox: ComboBox
    {

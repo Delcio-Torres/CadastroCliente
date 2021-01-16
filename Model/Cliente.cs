@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Data.OleDb;
 using System.Collections.Generic;
+using app8.Controller;
 
-namespace app8.Entities
+namespace app8.Model
 {
    class Cliente: Entidade
    {

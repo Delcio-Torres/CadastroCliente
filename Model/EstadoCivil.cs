@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace app8.Entities
+namespace app8.Model
 {
    class EstadoCivil
    {

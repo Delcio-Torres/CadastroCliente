@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.OleDb;
 
-namespace app8
+namespace app8.Controller
 {
    class Connection
    {

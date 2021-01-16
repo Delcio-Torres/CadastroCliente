@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Data.OleDb;
 
-namespace app8.Entities
+namespace app8.Controller
 {
    class Validation2
    {

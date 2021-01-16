@@ -2,9 +2,10 @@
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
-using app8.Entities;
+using app8.Controller;
+using app8.Model;
 
-namespace app8
+namespace app8.View
 {
    public partial class Form1 : Form
    {
@@ -75,6 +76,7 @@ namespace app8
          else
          {
             cmdIncluir.Text = "&Salvar";
+            LimpaForm();
             txtNome.Focus();
          }
       }
@@ -90,10 +92,8 @@ namespace app8
          PreencheFormCliente(idClienteSelecionado);
       }
 
-
       private void PreencheFormCliente(int idCliente)
       {
-
          Cliente cliente = Cliente.GetCliente(idCliente);
 
          txtNome.Text = cliente.Nome;
@@ -102,6 +102,17 @@ namespace app8
          txtCep.Text = cliente.Cep;
          cboEstado.SelectedValue = cliente.Estado.Id.ToString();
          cboEstadoCivil.SelectedValue = cliente.EstadoCivil.ID.ToString();
+      }
+
+      private void LimpaForm()
+      {
+         txtNome.Text = "";
+         txtEndereco.Text = "";
+         txtCidade.Text = "";
+         txtCep.Text = "";
+         txtID.Text = "";
+         cboEstado.Text = "";
+         cboEstadoCivil.Text = "";
       }
    }
 }
