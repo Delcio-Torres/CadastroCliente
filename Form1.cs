@@ -86,15 +86,21 @@ namespace app8
 
       private void dgClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
       {
-         if (e.RowIndex >= 0)
-         {
-            lblStatus.Text = e.RowIndex.ToString();
-         }
+         PreencheFormCliente(Convert.ToInt32(dgClientes.Rows[e.RowIndex].Cells[0].Value));
       }
 
-      private void button1_Click(object sender, EventArgs e)
+
+      private void PreencheFormCliente(int idCliente)
       {
 
+         Cliente cliente = Cliente.GetCliente(idCliente);
+
+         txtNome.Text = cliente.Nome;
+         txtEndereco.Text =cliente.Endereco;
+         txtCidade.Text = cliente.Cidade;
+         txtCep.Text = cliente.Cep;
+         cboEstado.SelectedValue = cliente.Estado.Id.ToString();
+         cboEstadoCivil.SelectedValue = cliente.EstadoCivil.ID.ToString();
       }
    }
 }

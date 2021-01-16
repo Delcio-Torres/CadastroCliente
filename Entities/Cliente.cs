@@ -101,7 +101,6 @@ namespace app8.Entities
             c = this.Cep.Substring(i, 1);
             if (c == "-" && i == 5) digito = 5;
             else y += c;
-
          }
          if (int.TryParse(y, out x) && digito == 5 && this.Cep.Length == 9) { }
          else throw new Exception("CEP não está no formato válido \"00000-000\"");
@@ -126,6 +125,28 @@ namespace app8.Entities
          );
          
          return clientes;
+      }
+
+      public static Cliente GetCliente(int idcliente)
+      {
+         Cliente cliente = new Cliente();
+         ca.RunQuery($@"SELECT c.idCliente, c.Nome, c.Endereco, c.Cidade, c.Cep, e.idEstado, e.Estado, p.idEstadoCivil, p.EstadoCivil
+                      FROM((Clientes c INNER JOIN
+                         Estados e ON e.idEstado = c.idEstado) INNER JOIN
+                         EstadoCivil p ON p.idEstadoCivil = c.idEstadoCivil) WHERE(c.idCliente = {idcliente})", (OleDbDataReader dr) =>
+         {
+            if (dr.Read())
+            {
+               cliente.Nome = dr["Nome"].ToString();
+               cliente.Endereco = dr["Endereco"].ToString();
+               cliente.Cidade = dr["Cidade"].ToString();
+               cliente.Cep = dr["Cep"].ToString();
+               cliente.Estado = new Estado { Id = Convert.ToInt32(dr["idEstado"]), Nome = dr["Estado"].ToString() };
+               cliente.EstadoCivil = new EstadoCivil { ID = Convert.ToInt32(dr["idEstadoCivil"]), Nome = dr["EstadoCivil"].ToString() };
+            }
+         });
+
+         return cliente;
       }
    }
 }

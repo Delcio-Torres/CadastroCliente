@@ -266,7 +266,7 @@ namespace app8
          // 
          // Column2
          // 
-         this.Column2.HeaderText = "Endereçco";
+         this.Column2.HeaderText = "Endereço";
          this.Column2.Name = "Column2";
          this.Column2.ReadOnly = true;
          // 

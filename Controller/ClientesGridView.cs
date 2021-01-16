@@ -18,10 +18,11 @@ namespace app8.Entities
          this.Columns[0].Visible = false;
          this.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
          this.Columns[2].Width = 200;
-         this.Columns[3].Width = 100;
+         this.Columns[3].Width = 150;
+
          foreach (Cliente cliente in Cliente.LerBancoClinete())
          {
-            this.Rows.Add(cliente.IdCliente, cliente.Nome, cliente.Endereco);
+            this.Rows.Add(cliente.IdCliente, cliente.Nome, cliente.Endereco, cliente.Cidade);
          }
       }
 
