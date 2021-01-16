@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Data.OleDb;
+using System.Collections.Generic;
 
 namespace app8.Entities
 {
    class Cliente: Entidade
    {
+      static Connection ca = new Connection();
+
+      public int IdCliente { get; set; }
       public string Nome { get; set; }
       public string Endereco { get; set; }
       public string Cidade { get; set; }
@@ -12,7 +16,20 @@ namespace app8.Entities
       public Estado Estado { get; set; }
       public EstadoCivil EstadoCivil { get; set; }
 
-      Connection ca = new Connection();
+      public Cliente()
+      {
+      }
+
+      public Cliente(int idCliente, string nome, string endereco, string cidade, string cep, Estado estado, EstadoCivil estadoCivil)
+      {
+         IdCliente = idCliente;
+         Nome = nome;
+         Endereco = endereco;
+         Cidade = cidade;
+         Cep = cep;
+         Estado = estado;
+         EstadoCivil = estadoCivil;
+      }
 
       public string txtControle = "";
 
@@ -88,6 +105,27 @@ namespace app8.Entities
          }
          if (int.TryParse(y, out x) && digito == 5 && this.Cep.Length == 9) { }
          else throw new Exception("CEP não está no formato válido \"00000-000\"");
+      }
+
+      public static List<Cliente> LerBancoClinete()
+      {
+         List<Cliente> clientes = new List<Cliente>();
+         ca.RunQuery("SELECT idCliente, Nome, Endereco, Cidade FROM Clientes ORDER BY Nome", (OleDbDataReader dr) =>
+            {
+               while (dr.Read())
+               {
+                  Cliente cliente = new Cliente {
+                     IdCliente = Convert.ToInt32(dr["idCliente"]),
+                     Nome = dr["Nome"].ToString(),
+                     Endereco = dr["Endereco"].ToString(),
+                     Cidade = dr["Cidade"].ToString(),
+                  };
+                     clientes.Add(cliente);
+               }
+            }
+         );
+         
+         return clientes;
       }
    }
 }

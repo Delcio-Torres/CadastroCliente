@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using System.Collections.Generic;
 
 namespace app8.Entities
 {
@@ -10,15 +11,28 @@ namespace app8.Entities
       {
          ca = new Connection();
       }
-         
+
       public void PreencheDataGrid()
       {
-         string query = "SELECT idCliente, Nome, Endereco, Cidade FROM Clientes ORDER BY Nome";
-         this.DataSource = ca.RunQuery(query,"Clientes");
+         this.Rows.Clear();
          this.Columns[0].Visible = false;
          this.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
          this.Columns[2].Width = 200;
          this.Columns[3].Width = 100;
+         foreach (Cliente cliente in Cliente.LerBancoClinete())
+         {
+            this.Rows.Add(cliente.IdCliente, cliente.Nome, cliente.Endereco);
+         }
       }
+
+      //public void PreencheDataGrid()
+      //{
+      //   string query = "SELECT idCliente, Nome, Endereco, Cidade FROM Clientes ORDER BY Nome";
+      //   this.DataSource = ca.RunQuery(query,"Clientes");
+      //   this.Columns[0].Visible = false;
+      //   this.Columns[1].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+      //   this.Columns[2].Width = 200;
+      //   this.Columns[3].Width = 100;
+      //}
    }
 }

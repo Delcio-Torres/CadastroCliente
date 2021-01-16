@@ -51,6 +51,10 @@ namespace app8
          this.cboEstado = new app8.Controller.EstadoComboBox();
          this.cboEstadoCivil = new app8.Controller.EstadoCivilComboBox();
          this.dgClientes = new app8.Entities.ClientesGridView();
+         this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+         this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+         this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+         this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
          ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
          this.SuspendLayout();
          // 
@@ -230,6 +234,11 @@ namespace app8
          this.dgClientes.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
          this.dgClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
          this.dgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+         this.dgClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Column1,
+            this.Column2,
+            this.Column3});
          this.dgClientes.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.dgClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
          this.dgClientes.Location = new System.Drawing.Point(0, 227);
@@ -242,6 +251,30 @@ namespace app8
          this.dgClientes.TabIndex = 11;
          this.dgClientes.TabStop = false;
          this.dgClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellDoubleClick);
+         // 
+         // Id
+         // 
+         this.Id.HeaderText = "id";
+         this.Id.Name = "Id";
+         this.Id.ReadOnly = true;
+         // 
+         // Column1
+         // 
+         this.Column1.HeaderText = "Nome";
+         this.Column1.Name = "Column1";
+         this.Column1.ReadOnly = true;
+         // 
+         // Column2
+         // 
+         this.Column2.HeaderText = "Endereçco";
+         this.Column2.Name = "Column2";
+         this.Column2.ReadOnly = true;
+         // 
+         // Column3
+         // 
+         this.Column3.HeaderText = "Cidade";
+         this.Column3.Name = "Column3";
+         this.Column3.ReadOnly = true;
          // 
          // Form1
          // 
@@ -302,6 +335,10 @@ namespace app8
       private System.Windows.Forms.Button cmdFechar;
       private System.Windows.Forms.Button cmdAlterar;
       private System.Windows.Forms.Button cmdExcluir;
+      private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+      private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+      private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+      private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
    }
 }
 
