@@ -31,7 +31,6 @@ namespace app8.View
       /// </summary>
       private void InitializeComponent()
       {
-         this.components = new System.ComponentModel.Container();
          this.txtNome = new System.Windows.Forms.TextBox();
          this.txtEndereco = new System.Windows.Forms.TextBox();
          this.txtCidade = new System.Windows.Forms.TextBox();
@@ -51,14 +50,12 @@ namespace app8.View
          this.cmdExcluir = new System.Windows.Forms.Button();
          this.cboEstado = new app8.View.EstadoComboBox();
          this.cboEstadoCivil = new app8.View.EstadoCivilComboBox();
-         this.dgClientes = new app8.Controller.ClientesGridView();
-         this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-         this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-         this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-         this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-         this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+         this.dgClientes = new app8.View.ClientesGridView();
+         this.DataGridCol_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+         this.DataGridCol_Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
+         this.DataGridCol_Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
+         this.DataGridCol_Cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
          ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
-         ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
          this.SuspendLayout();
          // 
          // txtNome
@@ -238,10 +235,10 @@ namespace app8.View
          this.dgClientes.BorderStyle = System.Windows.Forms.BorderStyle.None;
          this.dgClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
          this.dgClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Id,
-            this.Column1,
-            this.Column2,
-            this.Column3});
+            this.DataGridCol_Id,
+            this.DataGridCol_Nome,
+            this.DataGridCol_Endereco,
+            this.DataGridCol_Cidade});
          this.dgClientes.Dock = System.Windows.Forms.DockStyle.Bottom;
          this.dgClientes.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
          this.dgClientes.Location = new System.Drawing.Point(0, 227);
@@ -255,33 +252,36 @@ namespace app8.View
          this.dgClientes.TabStop = false;
          this.dgClientes.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgClientes_CellDoubleClick);
          // 
-         // Id
+         // DataGridCol_Id
          // 
-         this.Id.HeaderText = "id";
-         this.Id.Name = "Id";
-         this.Id.ReadOnly = true;
+         this.DataGridCol_Id.HeaderText = "id";
+         this.DataGridCol_Id.Name = "DataGridCol_Id";
+         this.DataGridCol_Id.ReadOnly = true;
+         this.DataGridCol_Id.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+         this.DataGridCol_Id.Visible = false;
          // 
-         // Column1
+         // DataGridCol_Nome
          // 
-         this.Column1.HeaderText = "Nome";
-         this.Column1.Name = "Column1";
-         this.Column1.ReadOnly = true;
+         this.DataGridCol_Nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+         this.DataGridCol_Nome.HeaderText = "Nome";
+         this.DataGridCol_Nome.Name = "DataGridCol_Nome";
+         this.DataGridCol_Nome.ReadOnly = true;
+         this.DataGridCol_Nome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
          // 
-         // Column2
+         // DataGridCol_Endereco
          // 
-         this.Column2.HeaderText = "Endereço";
-         this.Column2.Name = "Column2";
-         this.Column2.ReadOnly = true;
+         this.DataGridCol_Endereco.HeaderText = "Endereço";
+         this.DataGridCol_Endereco.Name = "DataGridCol_Endereco";
+         this.DataGridCol_Endereco.ReadOnly = true;
+         this.DataGridCol_Endereco.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+         this.DataGridCol_Endereco.Width = 150;
          // 
-         // Column3
+         // DataGridCol_Cidade
          // 
-         this.Column3.HeaderText = "Cidade";
-         this.Column3.Name = "Column3";
-         this.Column3.ReadOnly = true;
-         // 
-         // errorProvider1
-         // 
-         this.errorProvider1.ContainerControl = this;
+         this.DataGridCol_Cidade.HeaderText = "Cidade";
+         this.DataGridCol_Cidade.Name = "DataGridCol_Cidade";
+         this.DataGridCol_Cidade.ReadOnly = true;
+         this.DataGridCol_Cidade.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
          // 
          // Form1
          // 
@@ -315,7 +315,6 @@ namespace app8.View
          this.Text = "Cadastro de Clientes";
          this.Load += new System.EventHandler(this.Form1_Load);
          ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
-         ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
 
@@ -343,11 +342,10 @@ namespace app8.View
       private System.Windows.Forms.Button cmdFechar;
       private System.Windows.Forms.Button cmdAlterar;
       private System.Windows.Forms.Button cmdExcluir;
-      private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-      private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-      private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-      private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-      private System.Windows.Forms.ErrorProvider errorProvider1;
+      private System.Windows.Forms.DataGridViewTextBoxColumn DataGridCol_Id;
+      private System.Windows.Forms.DataGridViewTextBoxColumn DataGridCol_Nome;
+      private System.Windows.Forms.DataGridViewTextBoxColumn DataGridCol_Endereco;
+      private System.Windows.Forms.DataGridViewTextBoxColumn DataGridCol_Cidade;
    }
 }
 
