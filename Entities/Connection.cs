@@ -31,12 +31,14 @@ namespace app8
             OleDbDataAdapter da = new OleDbDataAdapter(sql, cx);
             DataSet ds = new DataSet();
             da.Fill(ds, table);
+            
             return ds.Tables[table];
          }
          catch (Exception x)
          {
             return new DataTable();
-         } finally
+         } 
+         finally
          {
             CloseDb();
          }
