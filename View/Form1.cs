@@ -21,7 +21,7 @@ namespace app8.View
       private void Form1_Load(object sender, EventArgs e)
       {
          
-         dgClientes.PreencheDataGrid();
+         dgClientes.PreencheDataGrid(controller);
          cboEstado.PreencheComboEstado();
          cboEstadoCivil.PreencheComboEstadoCivil();
       }
@@ -42,7 +42,7 @@ namespace app8.View
             {
                cliente.Validar();
                controller.InsertClient(cliente);
-               dgClientes.PreencheDataGrid();
+               dgClientes.PreencheDataGrid(controller);
             }
             catch (Exception x)
             {
