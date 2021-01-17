@@ -86,7 +86,8 @@ namespace app8
 
       private void dgClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
       {
-         PreencheFormCliente(Convert.ToInt32(dgClientes.Rows[e.RowIndex].Cells[0].Value));
+         int idClienteSelecionado = Convert.ToInt32(dgClientes.Rows[e.RowIndex].Cells[0].Value);
+         PreencheFormCliente(idClienteSelecionado);
       }
 
 

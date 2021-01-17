@@ -119,7 +119,7 @@ namespace app8.Entities
                      Endereco = dr["Endereco"].ToString(),
                      Cidade = dr["Cidade"].ToString(),
                   };
-                     clientes.Add(cliente);
+                  clientes.Add(cliente);
                }
             }
          );
@@ -127,13 +127,13 @@ namespace app8.Entities
          return clientes;
       }
 
-      public static Cliente GetCliente(int idcliente)
+      public static Cliente GetCliente(int idCliente)
       {
          Cliente cliente = new Cliente();
          ca.RunQuery($@"SELECT c.idCliente, c.Nome, c.Endereco, c.Cidade, c.Cep, e.idEstado, e.Estado, p.idEstadoCivil, p.EstadoCivil
                       FROM((Clientes c INNER JOIN
                          Estados e ON e.idEstado = c.idEstado) INNER JOIN
-                         EstadoCivil p ON p.idEstadoCivil = c.idEstadoCivil) WHERE(c.idCliente = {idcliente})", (OleDbDataReader dr) =>
+                         EstadoCivil p ON p.idEstadoCivil = c.idEstadoCivil) WHERE(c.idCliente = {idCliente})", (OleDbDataReader dr) =>
          {
             if (dr.Read())
             {
