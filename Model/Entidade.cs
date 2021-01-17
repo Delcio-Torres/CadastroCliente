@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace app8.Entities
+namespace app8.Model
 {
    abstract class Entidade
    {

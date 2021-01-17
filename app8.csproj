@@ -46,31 +46,30 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\ClientesGridView.cs">
+    <Compile Include="Controller\ClienteController.cs" />
+    <Compile Include="View\ClientesGridView.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controller\EstadoCivilComboBox.cs">
+    <Compile Include="View\EstadoCivilComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Controller\EstadoComboBox.cs">
+    <Compile Include="View\EstadoComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Entities\Cliente.cs" />
-    <Compile Include="Entities\Entidade.cs" />
-    <Compile Include="Entities\Estado.cs" />
-    <Compile Include="Entities\EstadoCivil.cs" />
-    <Compile Include="Entities\Validacao.cs" />
-    <Compile Include="Entities\Connection.cs" />
-    <Compile Include="Entities\Validation2.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="Model\Cliente.cs" />
+    <Compile Include="Model\Entidade.cs" />
+    <Compile Include="Model\Estado.cs" />
+    <Compile Include="Model\EstadoCivil.cs" />
+    <Compile Include="Controller\Connection.cs" />
+    <Compile Include="View\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="View\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="View\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -95,5 +94,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

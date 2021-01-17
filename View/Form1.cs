@@ -2,15 +2,16 @@
 using System.Data;
 using System.Data.OleDb;
 using System.Windows.Forms;
-using app8.Entities;
+using app8.Controller;
+using app8.Model;
 
-namespace app8
+namespace app8.View
 {
    public partial class Form1 : Form
    {
       Connection ca = new Connection();
-      Validacao funcao = new Validacao();
       Cliente cliente = new Cliente();
+      ClienteController controller = new ClienteController();
 
       public Form1()
       {
@@ -19,7 +20,8 @@ namespace app8
 
       private void Form1_Load(object sender, EventArgs e)
       {
-         dgClientes.PreencheDataGrid();
+         
+         dgClientes.PreencheDataGrid(controller);
          cboEstado.PreencheComboEstado();
          cboEstadoCivil.PreencheComboEstadoCivil();
       }
@@ -39,22 +41,8 @@ namespace app8
             try
             {
                cliente.Validar();
-
-               Validation2 valida = new Validation2
-               {
-                  Nome = txtNome.Text.Trim(),
-                  Endereco = txtEndereco.Text.Trim(),
-                  Cep = txtCep.Text.Trim(),
-                  Cidade = txtCidade.Text.Trim(),
-                  Estado = cboEstado.Text.Trim(),
-                  IdEstado = Convert.ToInt32(cboEstado.SelectedValue),
-                  EstadoCivil = cboEstadoCivil.Text.Trim(),
-                  IdEstadoCivil = Convert.ToInt32(cboEstadoCivil.SelectedValue)
-               };
-
-               valida.IsertClient();
-
-               dgClientes.PreencheDataGrid();
+               controller.InsertClient(cliente);
+               dgClientes.PreencheDataGrid(controller);
             }
             catch (Exception x)
             {
@@ -75,6 +63,7 @@ namespace app8
          else
          {
             cmdIncluir.Text = "&Salvar";
+            LimpaForm();
             txtNome.Focus();
          }
       }
@@ -90,10 +79,8 @@ namespace app8
          PreencheFormCliente(idClienteSelecionado);
       }
 
-
       private void PreencheFormCliente(int idCliente)
       {
-
          Cliente cliente = Cliente.GetCliente(idCliente);
 
          txtNome.Text = cliente.Nome;
@@ -102,6 +89,17 @@ namespace app8
          txtCep.Text = cliente.Cep;
          cboEstado.SelectedValue = cliente.Estado.Id.ToString();
          cboEstadoCivil.SelectedValue = cliente.EstadoCivil.ID.ToString();
+      }
+
+      private void LimpaForm()
+      {
+         txtNome.Text = "";
+         txtEndereco.Text = "";
+         txtCidade.Text = "";
+         txtCep.Text = "";
+         txtID.Text = "";
+         cboEstado.Text = "";
+         cboEstadoCivil.Text = "";
       }
    }
 }

@@ -2,7 +2,7 @@
 using System.Data;
 using System.Data.OleDb;
 
-namespace app8
+namespace app8.Controller
 {
    class Connection
    {
@@ -31,13 +31,13 @@ namespace app8
             OleDbDataAdapter da = new OleDbDataAdapter(sql, cx);
             DataSet ds = new DataSet();
             da.Fill(ds, table);
-            
+
             return ds.Tables[table];
          }
-         catch (Exception x)
+         catch
          {
             return new DataTable();
-         } 
+         }
          finally
          {
             CloseDb();
@@ -51,10 +51,26 @@ namespace app8
          cmd.CommandText = sql;
          cmd.Connection = cx;
          OleDbDataReader dr = cmd.ExecuteReader();
-         func(dr);
-         
+         try
+         {
+            func(dr);
+         }
+         finally
+         {
+            CloseDb();
+         }
+      }
+
+      public void RunQuery(string sql)
+      {
+         OpenDb();
+
+         cmd.CommandText = sql;
+         cmd.Connection = cx;
+         cmd.ExecuteNonQuery();
+
          CloseDb();
       }
-      
+
    }
 }
