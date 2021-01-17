@@ -34,7 +34,7 @@ namespace app8.Controller
 
             return ds.Tables[table];
          }
-         catch (Exception)
+         catch
          {
             return new DataTable();
          }
