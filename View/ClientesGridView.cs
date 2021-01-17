@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using app8.Model;
 using app8.Controller;
 
-namespace app8.Controller
+namespace app8.View
 {
    class ClientesGridView: DataGridView
    {
