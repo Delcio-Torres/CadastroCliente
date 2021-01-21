@@ -1,0 +1,8 @@
+{
+  "recommendations": [
+    "ms-vscode.mono-debug",
+    "ms-dotnettools.csharp",
+    "jchannon.csharpextensions",
+    "eamodio.gitlens"
+  ]
+}
