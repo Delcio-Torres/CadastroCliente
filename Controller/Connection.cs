@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Data;
 using System.Data.OleDb;
+using System.Data.SQLite;
 
 namespace app8.Controller
 {
    class Connection
    {
-      public OleDbConnection cx = new OleDbConnection();
-      OleDbCommand cmd = new OleDbCommand();
+      public SQLiteConnection cx = new SQLiteConnection();
+      SQLiteCommand cmd = new SQLiteCommand();
 
       public void OpenDb()
       {
-         string provider = "Provider=Microsoft.Jet.OLEDB.4.0; ";
-         string bank = @"Data Source = D:\Curso C#\C# Avançado\Aula 08\app8\cadastrocliente\loja.mdb";
+         //string provider = "Provider=Microsoft.Jet.OLEDB.4.0; ";
+         string bank = @"Data Source = C:\Users\delci\source\repos\CadastroCliente\Db\DB_Clientes.db";
 
-         cx.ConnectionString = provider + bank;
+         cx.ConnectionString = bank;
          cx.Open();
       }
 
@@ -28,7 +29,7 @@ namespace app8.Controller
          OpenDb();
          try
          {
-            OleDbDataAdapter da = new OleDbDataAdapter(sql, cx);
+            SQLiteDataAdapter da = new SQLiteDataAdapter(sql, cx);
             DataSet ds = new DataSet();
             da.Fill(ds, table);
 
@@ -40,23 +41,25 @@ namespace app8.Controller
          }
          finally
          {
+            
             CloseDb();
          }
       }
 
-      public void RunQuery(string sql, Action<OleDbDataReader> func)
+      public void RunQuery(string sql, Action<SQLiteDataReader> func)
       {
          OpenDb();
 
          cmd.CommandText = sql;
          cmd.Connection = cx;
-         OleDbDataReader dr = cmd.ExecuteReader();
+         SQLiteDataReader dr = cmd.ExecuteReader();
          try
          {
             func(dr);
          }
          finally
          {
+            dr.Close();
             CloseDb();
          }
       }

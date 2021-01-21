@@ -31,6 +31,7 @@ namespace app8.View
       /// </summary>
       private void InitializeComponent()
       {
+         this.components = new System.ComponentModel.Container();
          this.txtNome = new System.Windows.Forms.TextBox();
          this.txtEndereco = new System.Windows.Forms.TextBox();
          this.txtCidade = new System.Windows.Forms.TextBox();
@@ -48,6 +49,7 @@ namespace app8.View
          this.cmdFechar = new System.Windows.Forms.Button();
          this.cmdAlterar = new System.Windows.Forms.Button();
          this.cmdExcluir = new System.Windows.Forms.Button();
+         this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
          this.cboEstado = new app8.View.EstadoComboBox();
          this.cboEstadoCivil = new app8.View.EstadoCivilComboBox();
          this.dgClientes = new app8.View.ClientesGridView();
@@ -55,6 +57,7 @@ namespace app8.View
          this.DataGridCol_Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
          this.DataGridCol_Endereco = new System.Windows.Forms.DataGridViewTextBoxColumn();
          this.DataGridCol_Cidade = new System.Windows.Forms.DataGridViewTextBoxColumn();
+         ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
          ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).BeginInit();
          this.SuspendLayout();
          // 
@@ -209,6 +212,10 @@ namespace app8.View
          this.cmdExcluir.Text = "&Excluir";
          this.cmdExcluir.UseVisualStyleBackColor = true;
          // 
+         // errorProvider1
+         // 
+         this.errorProvider1.ContainerControl = this;
+         // 
          // cboEstado
          // 
          this.cboEstado.FormattingEnabled = true;
@@ -220,6 +227,7 @@ namespace app8.View
          // cboEstadoCivil
          // 
          this.cboEstadoCivil.FormattingEnabled = true;
+         this.errorProvider1.SetIconAlignment(this.cboEstadoCivil, System.Windows.Forms.ErrorIconAlignment.TopLeft);
          this.cboEstadoCivil.Location = new System.Drawing.Point(404, 129);
          this.cboEstadoCivil.Name = "cboEstadoCivil";
          this.cboEstadoCivil.Size = new System.Drawing.Size(123, 21);
@@ -314,6 +322,7 @@ namespace app8.View
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          this.Text = "Cadastro de Clientes";
          this.Load += new System.EventHandler(this.Form1_Load);
+         ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
          this.ResumeLayout(false);
          this.PerformLayout();
@@ -346,6 +355,7 @@ namespace app8.View
       private System.Windows.Forms.DataGridViewTextBoxColumn DataGridCol_Nome;
       private System.Windows.Forms.DataGridViewTextBoxColumn DataGridCol_Endereco;
       private System.Windows.Forms.DataGridViewTextBoxColumn DataGridCol_Cidade;
+      private System.Windows.Forms.ErrorProvider errorProvider1;
    }
 }
 

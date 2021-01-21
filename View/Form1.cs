@@ -47,6 +47,7 @@ namespace app8.View
             catch (Exception x)
             {
                status = x.Message;
+               throw x;
                if (cliente.txtControle == "nome") txtNome.Focus();
                if (cliente.txtControle == "endereco") txtEndereco.Focus();
                if (cliente.txtControle == "cidade") txtCidade.Focus();
