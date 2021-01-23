@@ -12,7 +12,7 @@ namespace app8.Controller
       public void OpenDb()
       {
          //string provider = "Provider=Microsoft.Jet.OLEDB.4.0; ";
-         string bank = @"Data Source = C:\Users\delci\source\repos\CadastroCliente\Db\DB_Clientes.db";
+         string bank = $"Data Source = {AppDomain.CurrentDomain.BaseDirectory}db/DB_Clientes.db";
 
          cx.ConnectionString = bank;
          cx.Open();
