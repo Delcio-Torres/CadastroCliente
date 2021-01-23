@@ -28,7 +28,7 @@ namespace app8.View
          this.ValueMember = "idEstado";
          this.DataSource = ds.Tables[a];
          ca.CloseDb();
-         this.Text = "";
+         this.SelectedIndex = -1;
       }
 
       public Estado ToEstado()

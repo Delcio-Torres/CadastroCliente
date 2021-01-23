@@ -27,7 +27,7 @@ namespace app8.View
          this.ValueMember = "idEstadoCivil";
          this.DataSource = ds.Tables[a];
          ca.CloseDb();
-         this.Text = "";
+         this.SelectedIndex = -1;
       }
 
       public EstadoCivil ToEstadoCivil()
