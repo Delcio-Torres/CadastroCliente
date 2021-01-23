@@ -3,7 +3,7 @@ using app8.Model;
 using app8.Controller;
 using System.Windows.Forms;
 using System.Data;
-using System.Data.OleDb;
+using System.Data.SQLite;
 
 namespace app8.View
 {
@@ -19,7 +19,7 @@ namespace app8.View
       {
          ca.OpenDb();
          string sql = "SELECT idEstadoCivil, EstadoCivil FROM EstadoCivil";
-         OleDbDataAdapter da = new OleDbDataAdapter(sql, ca.cx);
+         SQLiteDataAdapter da = new SQLiteDataAdapter(sql, ca.cx);
          DataSet ds = new DataSet();
          string a = "EstadoCivil";
          da.Fill(ds, a);
@@ -27,7 +27,7 @@ namespace app8.View
          this.ValueMember = "idEstadoCivil";
          this.DataSource = ds.Tables[a];
          ca.CloseDb();
-         this.Text = "";
+         this.SelectedIndex = -1;
       }
 
       public EstadoCivil ToEstadoCivil()

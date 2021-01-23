@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Data.OleDb;
 using System.Windows.Forms;
 using app8.Controller;
 using app8.Model;
@@ -16,6 +15,7 @@ namespace app8.View
       public Form1()
       {
          InitializeComponent();
+
       }
 
       private void Form1_Load(object sender, EventArgs e)
@@ -47,6 +47,7 @@ namespace app8.View
             catch (Exception x)
             {
                status = x.Message;
+               
                if (cliente.txtControle == "nome") txtNome.Focus();
                if (cliente.txtControle == "endereco") txtEndereco.Focus();
                if (cliente.txtControle == "cidade") txtCidade.Focus();
@@ -98,8 +99,8 @@ namespace app8.View
          txtCidade.Text = "";
          txtCep.Text = "";
          txtID.Text = "";
-         cboEstado.Text = "";
-         cboEstadoCivil.Text = "";
+         cboEstado.SelectedIndex = -1;
+         cboEstadoCivil.SelectedIndex = -1;
       }
    }
 }

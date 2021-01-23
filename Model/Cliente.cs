@@ -1,7 +1,7 @@
 ﻿using System;
-using System.Data.OleDb;
 using System.Collections.Generic;
 using app8.Controller;
+using System.Data.SQLite;
 
 namespace app8.Model
 {
@@ -64,7 +64,7 @@ namespace app8.Model
    
          ca.RunQuery(
             $"SELECT Nome FROM Clientes WHERE (Nome = '{this.Nome}')",
-            (OleDbDataReader dr) =>
+            (SQLiteDataReader dr) =>
             {
                if (dr.Read())
                {
@@ -80,7 +80,7 @@ namespace app8.Model
 
          ca.RunQuery(
             $"SELECT Endereco FROM Clientes WHERE (Endereco = '{this.Endereco}')",
-            (OleDbDataReader dr) =>
+            (SQLiteDataReader dr) =>
             {
                if (dr.Read())
                {
@@ -113,7 +113,7 @@ namespace app8.Model
          ca.RunQuery($@"SELECT c.idCliente, c.Nome, c.Endereco, c.Cidade, c.Cep, e.idEstado, e.Estado, p.idEstadoCivil, p.EstadoCivil
                       FROM((Clientes c INNER JOIN
                          Estados e ON e.idEstado = c.idEstado) INNER JOIN
-                         EstadoCivil p ON p.idEstadoCivil = c.idEstadoCivil) WHERE(c.idCliente = {idCliente})", (OleDbDataReader dr) =>
+                         EstadoCivil p ON p.idEstadoCivil = c.idEstadoCivil) WHERE(c.idCliente = {idCliente})", (SQLiteDataReader dr) =>
          {
             if (dr.Read())
             {

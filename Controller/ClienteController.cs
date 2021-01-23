@@ -1,7 +1,7 @@
 ﻿using System;
 using app8.Model;
 using System.Collections.Generic;
-using System.Data.OleDb;
+using System.Data.SQLite;
 
 namespace app8.Controller
 {
@@ -19,7 +19,7 @@ namespace app8.Controller
       public List<Cliente> LerBancoCliente()
       {
          List<Cliente> clientes = new List<Cliente>();
-         ca.RunQuery("SELECT idCliente, Nome, Endereco, Cidade FROM Clientes ORDER BY Nome", (OleDbDataReader dr) =>
+         ca.RunQuery("SELECT idCliente, Nome, Endereco, Cidade FROM Clientes ORDER BY Nome", (SQLiteDataReader dr) =>
          {
             while (dr.Read())
             {
