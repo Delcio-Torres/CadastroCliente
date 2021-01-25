@@ -1,41 +1,25 @@
 ﻿using System;
-using app8.Model;
+using Model.Entities;
 using app8.Controller;
 using System.Windows.Forms;
 using System.Data;
 using System.Data.SQLite;
+using app8.View.Base;
 
 namespace app8.View
 {
-   class EstadoCivilComboBox: ComboBox
+   class EstadoCivilComboBox: ComboBoxBase<EstadoCivil>
    {
-      Connection ca;
-      public EstadoCivilComboBox()
-      {
-         ca = new Connection();
-      }
       
-      public void PreencheComboEstadoCivil()
+      public EstadoCivilComboBox(): base("Nome", "Id")
       {
-         ca.OpenDb();
-         string sql = "SELECT idEstadoCivil, EstadoCivil FROM EstadoCivil";
-         SQLiteDataAdapter da = new SQLiteDataAdapter(sql, ca.cx);
-         DataSet ds = new DataSet();
-         string a = "EstadoCivil";
-         da.Fill(ds, a);
-         this.DisplayMember = "EstadoCivil";
-         this.ValueMember = "idEstadoCivil";
-         this.DataSource = ds.Tables[a];
-         ca.CloseDb();
-         this.SelectedIndex = -1;
       }
 
-      public EstadoCivil ToEstadoCivil()
+      public override EstadoCivil Parse()
       {
-
          return new EstadoCivil
          {
-            ID = Convert.ToInt32(this.SelectedValue),
+            Id = Convert.ToInt32(this.SelectedValue),
             Nome = this.Text.Trim()
          };
       }

@@ -59,7 +59,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controller\Base\IFormCliente.cs" />
     <Compile Include="Controller\ClienteController.cs" />
+    <Compile Include="Controller\Validation\JaCadastradoException.cs" />
+    <Compile Include="View\Base\ComboBoxBase.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="View\ClientesGridView.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -69,21 +74,18 @@
     <Compile Include="View\EstadoComboBox.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Model\Cliente.cs" />
-    <Compile Include="Model\Entidade.cs" />
-    <Compile Include="Model\Estado.cs" />
-    <Compile Include="Model\EstadoCivil.cs" />
     <Compile Include="Controller\Connection.cs" />
-    <Compile Include="View\Form1.cs">
+    <Compile Include="View\FormCliente.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="View\Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="View\FormCliente.Designer.cs">
+      <DependentUpon>FormCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="View\Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Controller\Validation\ValidarCliente.cs" />
+    <EmbeddedResource Include="View\FormCliente.resx">
+      <DependentUpon>FormCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -111,7 +113,12 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{8af2223d-23c9-4c4f-b8bf-dac1c300a7c5}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>

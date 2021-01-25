@@ -1,37 +1,20 @@
 ﻿using app8.Controller;
-using app8.Model;
+using Model.Entities;
 using System;
 using System.Data;
 using System.Windows.Forms;
 using System.Data.SQLite;
-
+using app8.View.Base;
 
 namespace app8.View
 {
-   class EstadoComboBox: ComboBox
+   class EstadoComboBox: ComboBoxBase<Estado>
    {
-      Connection ca;
-      public EstadoComboBox()
+      public EstadoComboBox(): base("Nome", "Id")
       {
-         ca = new Connection();
       }
 
-      public void PreencheComboEstado()
-      {
-         ca.OpenDb();
-         string sql = "SELECT idEstado, Estado FROM Estados";
-         SQLiteDataAdapter da = new SQLiteDataAdapter(sql, ca.cx);
-         DataSet ds = new DataSet();
-         string a = "Estados";
-         da.Fill(ds, a);
-         this.DisplayMember = "Estado";
-         this.ValueMember = "idEstado";
-         this.DataSource = ds.Tables[a];
-         ca.CloseDb();
-         this.SelectedIndex = -1;
-      }
-
-      public Estado ToEstado()
+      public override Estado Parse()
       {
          return new Estado
          {

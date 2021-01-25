@@ -3,7 +3,7 @@
 namespace app8.View
 
 {
-   partial class Form1
+   partial class FormCliente
    {
       /// <summary>
       /// Required designer variable.
@@ -50,8 +50,8 @@ namespace app8.View
          this.cmdAlterar = new System.Windows.Forms.Button();
          this.cmdExcluir = new System.Windows.Forms.Button();
          this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-         this.cboEstado = new app8.View.EstadoComboBox();
          this.cboEstadoCivil = new app8.View.EstadoCivilComboBox();
+         this.cboEstado = new app8.View.EstadoComboBox();
          this.dgClientes = new app8.View.ClientesGridView();
          this.DataGridCol_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
          this.DataGridCol_Nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,6 +63,7 @@ namespace app8.View
          // 
          // txtNome
          // 
+         this.txtNome.Enabled = false;
          this.txtNome.Location = new System.Drawing.Point(56, 77);
          this.txtNome.Name = "txtNome";
          this.txtNome.Size = new System.Drawing.Size(254, 20);
@@ -70,6 +71,7 @@ namespace app8.View
          // 
          // txtEndereco
          // 
+         this.txtEndereco.Enabled = false;
          this.txtEndereco.Location = new System.Drawing.Point(316, 77);
          this.txtEndereco.Name = "txtEndereco";
          this.txtEndereco.Size = new System.Drawing.Size(211, 20);
@@ -77,6 +79,7 @@ namespace app8.View
          // 
          // txtCidade
          // 
+         this.txtCidade.Enabled = false;
          this.txtCidade.Location = new System.Drawing.Point(56, 129);
          this.txtCidade.Name = "txtCidade";
          this.txtCidade.Size = new System.Drawing.Size(100, 20);
@@ -84,6 +87,7 @@ namespace app8.View
          // 
          // txtCep
          // 
+         this.txtCep.Enabled = false;
          this.txtCep.Location = new System.Drawing.Point(165, 129);
          this.txtCep.Name = "txtCep";
          this.txtCep.Size = new System.Drawing.Size(100, 20);
@@ -216,22 +220,28 @@ namespace app8.View
          // 
          this.errorProvider1.ContainerControl = this;
          // 
-         // cboEstado
-         // 
-         this.cboEstado.FormattingEnabled = true;
-         this.cboEstado.Location = new System.Drawing.Point(274, 129);
-         this.cboEstado.Name = "cboEstado";
-         this.cboEstado.Size = new System.Drawing.Size(121, 21);
-         this.cboEstado.TabIndex = 4;
-         // 
          // cboEstadoCivil
          // 
+         this.cboEstadoCivil.DisplayMember = "Nome";
+         this.cboEstadoCivil.Enabled = false;
          this.cboEstadoCivil.FormattingEnabled = true;
          this.errorProvider1.SetIconAlignment(this.cboEstadoCivil, System.Windows.Forms.ErrorIconAlignment.TopLeft);
          this.cboEstadoCivil.Location = new System.Drawing.Point(404, 129);
          this.cboEstadoCivil.Name = "cboEstadoCivil";
          this.cboEstadoCivil.Size = new System.Drawing.Size(123, 21);
          this.cboEstadoCivil.TabIndex = 5;
+         this.cboEstadoCivil.ValueMember = "Id";
+         // 
+         // cboEstado
+         // 
+         this.cboEstado.DisplayMember = "Nome";
+         this.cboEstado.Enabled = false;
+         this.cboEstado.FormattingEnabled = true;
+         this.cboEstado.Location = new System.Drawing.Point(274, 129);
+         this.cboEstado.Name = "cboEstado";
+         this.cboEstado.Size = new System.Drawing.Size(121, 21);
+         this.cboEstado.TabIndex = 4;
+         this.cboEstado.ValueMember = "Id";
          // 
          // dgClientes
          // 
@@ -291,7 +301,7 @@ namespace app8.View
          this.DataGridCol_Cidade.ReadOnly = true;
          this.DataGridCol_Cidade.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
          // 
-         // Form1
+         // FormCliente
          // 
          this.AcceptButton = this.cmdIncluir;
          this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -318,10 +328,10 @@ namespace app8.View
          this.Controls.Add(this.txtNome);
          this.Controls.Add(this.dgClientes);
          this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-         this.Name = "Form1";
+         this.Name = "FormCliente";
          this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
          this.Text = "Cadastro de Clientes";
-         this.Load += new System.EventHandler(this.Form1_Load);
+         this.Load += new System.EventHandler(this.FormCliente_Load);
          ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
          ((System.ComponentModel.ISupportInitialize)(this.dgClientes)).EndInit();
          this.ResumeLayout(false);

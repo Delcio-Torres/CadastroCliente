@@ -2,28 +2,25 @@
 using System.Data;
 using System.Windows.Forms;
 using app8.Controller;
-using app8.Model;
+using app8.Controller.Base;
+using Model.Entities;
 
 namespace app8.View
 {
-   public partial class Form1 : Form
+   public partial class FormCliente : Form, IFormCliente
    {
-      Connection ca = new Connection();
-      Cliente cliente = new Cliente();
       ClienteController controller = new ClienteController();
 
-      public Form1()
+      public FormCliente()
       {
          InitializeComponent();
-
       }
 
-      private void Form1_Load(object sender, EventArgs e)
+      private void FormCliente_Load(object sender, EventArgs e)
       {
-         
          dgClientes.PreencheDataGrid(controller);
-         cboEstado.PreencheComboEstado();
-         cboEstadoCivil.PreencheComboEstadoCivil();
+         cboEstado.SetDataSource(controller.LerBancoEstado());
+         cboEstadoCivil.SetDataSource(controller.LerBancoEstadoCivil());
       }
 
       private void cmdIncluir_Click(object sender, EventArgs e)
@@ -31,30 +28,24 @@ namespace app8.View
          string status = "";
          if (cmdIncluir.Text == "&Salvar")
          {
-            cliente.Nome = txtNome.Text.Trim();
-            cliente.Endereco = txtEndereco.Text.Trim();
-            cliente.Cep = txtCep.Text.Trim();
-            cliente.Cidade = txtCidade.Text.Trim();
-            cliente.Estado = cboEstado.ToEstado();
-            cliente.EstadoCivil = cboEstadoCivil.ToEstadoCivil();
+            Cliente cliente = new Cliente
+            {
+               Nome = txtNome.Text.Trim(),
+               Endereco = txtEndereco.Text.Trim(),
+               Cep = txtCep.Text.Trim(),
+               Cidade = txtCidade.Text.Trim(),
+               Estado = cboEstado.Parse(),
+               EstadoCivil = cboEstadoCivil.Parse()
+            };
 
             try
             {
-               cliente.Validar();
-               controller.InsertClient(cliente);
+               controller.InsertClient(cliente, this);
                dgClientes.PreencheDataGrid(controller);
             }
             catch (Exception x)
             {
                status = x.Message;
-               
-               if (cliente.txtControle == "nome") txtNome.Focus();
-               if (cliente.txtControle == "endereco") txtEndereco.Focus();
-               if (cliente.txtControle == "cidade") txtCidade.Focus();
-               if (cliente.txtControle == "cep") txtCep.Focus();
-               if (cliente.txtControle == "estado") cboEstado.Focus();
-               if (cliente.txtControle == "estadocivil") cboEstadoCivil.Focus();
-               cliente.txtControle = "";
             }
             finally
             {
@@ -82,14 +73,14 @@ namespace app8.View
 
       private void PreencheFormCliente(int idCliente)
       {
-         Cliente cliente = Cliente.GetCliente(idCliente);
+         Cliente cliente = controller.GetCliente(idCliente);
 
          txtNome.Text = cliente.Nome;
-         txtEndereco.Text =cliente.Endereco;
+         txtEndereco.Text = cliente.Endereco;
          txtCidade.Text = cliente.Cidade;
          txtCep.Text = cliente.Cep;
          cboEstado.SelectedValue = cliente.Estado.Id.ToString();
-         cboEstadoCivil.SelectedValue = cliente.EstadoCivil.ID.ToString();
+         cboEstadoCivil.SelectedValue = cliente.EstadoCivil.Id.ToString();
       }
 
       private void LimpaForm()
@@ -101,6 +92,41 @@ namespace app8.View
          txtID.Text = "";
          cboEstado.SelectedIndex = -1;
          cboEstadoCivil.SelectedIndex = -1;
+      }
+
+      public TextBox GetTextBoxNome()
+      {
+         return txtNome;
+      }
+
+      public TextBox GetTextBoxEndereco()
+      {
+        return txtEndereco;
+      }
+
+      public TextBox GetTextBoxCEP()
+      {
+         return txtCep;
+      }
+
+      public TextBox GetTextBoxCidade()
+      {
+         return txtCidade;
+      }
+
+      public ComboBox GetComboBoxEstado()
+      {
+         return cboEstado;
+      }
+
+      public ComboBox GetComboBoxEstadoCivil()
+      {
+         return cboEstadoCivil;
+      }
+
+      public ErrorProvider GetErrorProvider()
+      {
+         return errorProvider1;
       }
    }
 }

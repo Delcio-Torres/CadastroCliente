@@ -1,5 +1,5 @@
 ﻿using System.Windows.Forms;
-using app8.Model;
+using Model.Entities;
 using app8.Controller;
 
 namespace app8.View
